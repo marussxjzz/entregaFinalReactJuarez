@@ -2,7 +2,7 @@ import React from "react";
 
 function CartWidget () {
     return (
-        <a className="navbarElement" href="#">🛒0</a>
+        <a href="#">🛒0</a>
     )
 }
 
