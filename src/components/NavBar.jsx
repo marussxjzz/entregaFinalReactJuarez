@@ -1,33 +1,29 @@
-import React from "react"
-import CartWidget from "./CartWidget"
-import { Link } from "react-router-dom"
-import { Flex, Box, Heading, Grid,} from '@chakra-ui/react'
+import React from "react";
+import CartWidget from "./CartWidget";
+import { Link as RouterLink } from "react-router-dom";
+import { Flex, Box, Heading, Grid, Button } from '@chakra-ui/react';
 
 const NavBar = () => {
-
     return (
-        <div>
-            <Box bg="blackAlpha.900" p={4} color="white">
-                <Flex align="center" justify='space-between'>
-                    <Heading as="h1" size="lg">
-                        Funko's
-                    </Heading>
+        <Box bg="blackAlpha.900" px={4} py={3} color="white" marginBottom={10}>
+            <Flex align="center" justify="space-between" wrap="wrap">
+                <Heading as="h1" size="lg" my={2}>
+                    Funko's
+                </Heading>
 
-                    <Grid templateColumns='repeat(4, 1fr)' gap={3}>
-                        <Flex justify={'center'}><Link to={"/home"}>Home</Link></Flex>
-                        <Flex justify={'center'}><Link to={"/category/attackontitan"}>Attack on Titan</Link></Flex>
-                        <Flex justify={'center'}><Link to={"/category/barbie"}>Barbie</Link></Flex>
-                        <Flex justify={'center'}><Link to={"/category/disney"}>Disney</Link></Flex>
-                    </Grid>
-                    <Link to={"/cart"}>
-                        <CartWidget />
-                    </Link>
-                </Flex>
-            </Box>
-
-        </div>
-
-    )
+                <Grid templateColumns={{ sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }} gap={6} alignItems="center">
+                    <Button as={RouterLink} to={"/home"} color= 'white' variant="ghost" _hover={{ bg: 'teal.300', color: 'white' }}>Home</Button>
+                    <Button as={RouterLink} to={"/category/attackontitan"} color= 'white' variant="ghost" _hover={{ bg: 'teal.300', color: 'white' }}>Attack on Titan</Button>
+                    <Button as={RouterLink} to={"/category/barbie"} color= 'white' variant="ghost" _hover={{ bg: 'teal.300', color: 'white' }}>Barbie</Button>
+                    <Button as={RouterLink} to={"/category/disney"} color= 'white' variant="ghost" _hover={{ bg: 'teal.300', color: 'white' }}>Disney</Button>
+                </Grid>
+                
+                <RouterLink to={"/cart"}>
+                    <CartWidget />
+                </RouterLink>
+            </Flex>
+        </Box>
+    );
 }
 
-export default NavBar
+export default NavBar;
